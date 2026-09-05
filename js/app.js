@@ -36,6 +36,41 @@
     heatmapMonth = d.getMonth();
   }
 
+  // ---- データのバックアップ --------------------------------------------------
+
+  function backupFilename() {
+    var d = new Date();
+    function p(n) { return n < 10 ? "0" + n : "" + n; }
+    return "good-habits-backup-" + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + ".json";
+  }
+
+  function downloadText(filename, text) {
+    var blob = new Blob([text], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+
+  function restoreFromText(text) {
+    var next;
+    try {
+      next = STORAGE.parseBackup(text);
+    } catch (e) {
+      UI.showToast("復元できませんでした：" + e.message);
+      return;
+    }
+    if (!window.confirm(
+      "現在のデータを、バックアップの内容で置き換えます。\n（習慣 " + next.habits.length + " 件）\nこの操作は取り消せません。よろしいですか？"
+    )) return;
+    STORAGE.save(next);
+    location.reload();
+  }
+
   // ---- クリックイベントの一括委譲 -------------------------------------------
 
   document.addEventListener("click", function (e) {
@@ -110,6 +145,44 @@
       persist();
       UI.renderSettings(state);
       return;
+    }
+
+    if (e.target.closest('[data-action="export-data"]')) {
+      downloadText(backupFilename(), STORAGE.serialize(state));
+      UI.showToast("バックアップを書き出しました。");
+      return;
+    }
+
+    if (e.target.closest('[data-action="copy-data"]')) {
+      var json = STORAGE.serialize(state);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(json).then(
+          function () { UI.showToast("バックアップをコピーしました。メモやメールに貼り付けて保管してください。"); },
+          function () { window.prompt("下のテキストをすべてコピーして保管してください。", json); }
+        );
+      } else {
+        window.prompt("下のテキストをすべてコピーして保管してください。", json);
+      }
+      return;
+    }
+
+    if (e.target.closest('[data-action="paste-restore"]')) {
+      var pasted = window.prompt("バックアップのテキストを貼り付けてください。");
+      if (pasted) restoreFromText(pasted);
+      return;
+    }
+  });
+
+  // ---- 変更イベント（ファイル選択）の委譲 -----------------------------------
+
+  document.addEventListener("change", function (e) {
+    var fileInput = e.target.closest('[data-action="import-file"]');
+    if (fileInput && fileInput.files && fileInput.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function () { restoreFromText(String(reader.result)); };
+      reader.onerror = function () { UI.showToast("ファイルを読み込めませんでした。"); };
+      reader.readAsText(fileInput.files[0]);
+      fileInput.value = "";
     }
   });
 

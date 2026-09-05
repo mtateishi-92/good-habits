@@ -320,6 +320,17 @@ window.GH_UI = (function () {
         "</button>"
       );
     }).join("");
+
+    el("backup-card").innerHTML =
+      '<div class="backup-desc">記録はこの端末の中だけに保存されます。機種変更・アプリの削除・ブラウザのデータ消去で失われるため、ときどきバックアップを書き出して保管してください。</div>' +
+      '<div class="backup-btns">' +
+        '<button class="btn-sub" data-action="export-data">ファイルに書き出す</button>' +
+        '<button class="btn-sub" data-action="copy-data">コピー</button>' +
+      '</div>' +
+      '<div class="backup-btns">' +
+        '<label class="btn-sub">ファイルから復元<input type="file" accept="application/json,.json" data-action="import-file" hidden></label>' +
+        '<button class="btn-sub" data-action="paste-restore">テキストから復元</button>' +
+      '</div>';
   }
 
   // ---- 達成演出（花火オーバーレイ） --------------------------------------------------

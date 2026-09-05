@@ -36,7 +36,7 @@ icons.js → content.js → badges.js → storage.js → logic.js → ui.js → 
 
 ### Layer discipline (important)
 
-- **`GH_STORAGE`** ([js/storage.js](js/storage.js)) — `load()`/`save()`/`migrate()` against localStorage key `goodHabbits.state.v1`, plus date-key helpers. `defaultState()` is the schema of record.
+- **`GH_STORAGE`** ([js/storage.js](js/storage.js)) — `load()`/`save()`/`migrate()` against localStorage key `goodHabbits.state.v1`, plus date-key helpers and backup `serialize()`/`parseBackup()`. `defaultState()` is the schema of record. `parseBackup()` accepts both the `{ app, schema, state }` wrapper and a bare state object, then runs it through `migrate()`.
 - **`GH_LOGIC`** ([js/logic.js](js/logic.js)) — **the only place `state` is mutated.** Functions take `state` and mutate it in place, returning info the caller needs for UI reactions.
 - **`GH_UI`** ([js/ui.js](js/ui.js)) — renders from `state`, never mutates it. Escapes user text via `esc()`.
 - **`GH_CONTENT` / `GH_BADGES` / `GH_ICONS`** — static data only.
@@ -60,4 +60,4 @@ icons.js → content.js → badges.js → storage.js → logic.js → ui.js → 
 ## Known constraints (by design, do not "fix" without a backend)
 
 - **No OS notifications at all.** A backend-less PWA cannot do scheduled push, and timer-based reminders only run while the app is foregrounded, so they were removed. All nudging is in-app only: the "missed yesterday" banner shown on next open (`state.settings.notifySkipped`, handled in [js/logic.js](js/logic.js) + rendered by `GH_UI`). Do not reintroduce the `Notification` API without a Web Push backend.
-- Data is device-local; clearing site data erases all records. No export/import yet.
+- Data is device-local; clearing site data erases all records. Backup/restore is manual via **Settings → データのバックアップ** (JSON file download, clipboard copy, file/paste restore); restore fully replaces the current state. There is no automatic sync. End-user instructions live in [how_to_use.md](how_to_use.md).

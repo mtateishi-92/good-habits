@@ -85,12 +85,38 @@ window.GH_STORAGE = (function () {
     }
   }
 
+  // ---- バックアップ（エクスポート／インポート） -------------------------------
+
+  // 現在の状態を、復元用のJSON文字列にまとめる。
+  function serialize(state) {
+    return JSON.stringify({
+      app: "good-habits",
+      schema: 1,
+      exportedAt: new Date().toISOString(),
+      state: state
+    }, null, 2);
+  }
+
+  // バックアップのテキストを検証して state オブジェクトを返す。壊れていれば例外を投げる。
+  // serialize() が作ったラッパー形式と、素の state オブジェクトの両方を受け付ける。
+  function parseBackup(text) {
+    var obj = JSON.parse(text); // 不正なJSONならここで例外
+    var incoming = (obj && obj.app === "good-habits" && obj.state) ? obj.state : obj;
+    if (!incoming || typeof incoming !== "object" ||
+        !Array.isArray(incoming.habits) || typeof incoming.settings !== "object") {
+      throw new Error("Good-Habits のバックアップファイルではないようです");
+    }
+    return migrate(incoming);
+  }
+
   return {
     dateKey: dateKey,
     appDayKey: appDayKey,
     addDays: addDays,
     defaultState: defaultState,
     load: load,
-    save: save
+    save: save,
+    serialize: serialize,
+    parseBackup: parseBackup
   };
 })();
