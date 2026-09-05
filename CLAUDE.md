@@ -13,10 +13,16 @@ Specs live in [plan.md](plan.md) (behavior), [content/messages.md](content/messa
 - **Local**: `python -m http.server 8000` then open `http://localhost:8000`. The Service Worker (offline cache, home-screen install) does **not** run from `file://` — it needs an `http(s)` origin or `localhost`.
 - **Production**: GitHub Pages serves the `main` branch root at <https://mtateishi-92.github.io/good-habits/>. `git push` to `main` triggers an automatic rebuild (~30s). `.nojekyll` keeps files served as-is.
 - The site is served from a **subpath** (`/good-habits/`), so every asset reference must stay **relative** (`css/style.css`, `./index.html`, `sw.js`) — never root-absolute (`/css/...`).
-- **After changing any JS or CSS**: bump `CACHE_NAME` in [sw.js](sw.js) (e.g. `good-habits-v1` → `v2`) and keep the `CORE_ASSETS` list in sync, or clients keep serving the stale cached copy.
+- **After changing ANY asset** (JS, CSS, HTML, an icon PNG — anything in `CORE_ASSETS`): bump `CACHE_NAME` in [sw.js](sw.js) (e.g. `good-habits-v1` → `v2`) and keep the `CORE_ASSETS` list in sync. The Service Worker is cache-first, so without a new `CACHE_NAME` installed clients keep serving the stale copy indefinitely.
 - **App icons**: edit [icons/gen_icon.py](icons/gen_icon.py) (or `icons/icon-512.svg`), then `cd icons && python gen_icon.py` (requires Pillow) to regenerate the four PNGs.
 
 There are no tests and no linter.
+
+### How updates reach installed clients
+
+- The browser re-installs the Service Worker only when **`sw.js` itself is byte-different** from the cached copy. Changing `CACHE_NAME` is what makes that happen and also triggers `install` → re-fetch all `CORE_ASSETS`, then `activate` → delete the old cache. `skipWaiting()` + `clients.claim()` mean it takes roughly **two app restarts** to switch over (one to install, one to show).
+- The **home-screen launcher icon** is outside the Service Worker's control — it is captured from `manifest.json` at install time. Android/Chrome refreshes it lazily (can take days); iOS/Safari never refreshes it. Only uninstall + reinstall changes it immediately. Data survives a reinstall as long as the origin and the `goodHabbits.state.v1` key are unchanged.
+- The runtime `fetch` handler ([sw.js](sw.js)) caches every successful GET forever, including cross-origin/opaque responses (Google Fonts). There is no cache expiry or size cap.
 
 ## Architecture
 
@@ -25,7 +31,7 @@ There are no tests and no linter.
 [index.html](index.html) contains every screen as a `<section class="screen">`; navigation just toggles the `.active` class. Scripts load in a fixed order and each depends on globals defined earlier:
 
 ```
-icons.js → content.js → badges.js → storage.js → logic.js → notifications.js → ui.js → app.js
+icons.js → content.js → badges.js → storage.js → logic.js → ui.js → app.js
 ```
 
 ### Layer discipline (important)
@@ -34,7 +40,6 @@ icons.js → content.js → badges.js → storage.js → logic.js → notificati
 - **`GH_LOGIC`** ([js/logic.js](js/logic.js)) — **the only place `state` is mutated.** Functions take `state` and mutate it in place, returning info the caller needs for UI reactions.
 - **`GH_UI`** ([js/ui.js](js/ui.js)) — renders from `state`, never mutates it. Escapes user text via `esc()`.
 - **`GH_CONTENT` / `GH_BADGES` / `GH_ICONS`** — static data only.
-- **`GH_NOTIFY`** ([js/notifications.js](js/notifications.js)) — 30-minute idle reminder; OS `Notification` when granted, otherwise an in-app toast callback.
 - **`app.js`** — one IIFE owning the single `state` object. Handles clicks via **event delegation on `document`** (dispatch on `data-action` / `data-nav-target` / `data-*` attributes). Every interaction follows the same shape: `LOGIC.*(state, ...)` → `persist()` → `UI.render*(state)`.
 
 ### Domain model
@@ -54,6 +59,5 @@ icons.js → content.js → badges.js → storage.js → logic.js → notificati
 
 ## Known constraints (by design, do not "fix" without a backend)
 
-- Exact-time notifications (e.g. "notify at 10:00 the day after a miss") are impossible in a backend-less PWA. The app uses an in-app banner on next open instead.
-- `new Notification()` is unsupported in some mobile browsers → falls back to toast only.
+- **No OS notifications at all.** A backend-less PWA cannot do scheduled push, and timer-based reminders only run while the app is foregrounded, so they were removed. All nudging is in-app only: the "missed yesterday" banner shown on next open (`state.settings.notifySkipped`, handled in [js/logic.js](js/logic.js) + rendered by `GH_UI`). Do not reintroduce the `Notification` API without a Web Push backend.
 - Data is device-local; clearing site data erases all records. No export/import yet.

@@ -308,7 +308,6 @@ window.GH_UI = (function () {
     }).join("");
 
     var toggles = [
-      { key: "notifyInactivity", name: "非操作リマインダー", desc: "アプリを開いたまま30分操作がない場合に通知" },
       { key: "notifySkipped", name: "未達成日のバナー通知", desc: "前日サボった習慣がある場合にアプリ内で通知" },
       { key: "notifySound", name: "達成演出サウンド", desc: "花火演出・称賛コメント時の効果音（今後実装予定）" }
     ];

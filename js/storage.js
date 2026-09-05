@@ -36,7 +36,6 @@ window.GH_STORAGE = (function () {
       settings: {
         theme: "classic",
         resetHour: 2,
-        notifyInactivity: true,
         notifySkipped: true,
         notifySound: false
       },

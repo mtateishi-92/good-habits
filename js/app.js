@@ -7,7 +7,6 @@
   var CONTENT = window.GH_CONTENT;
   var LOGIC = window.GH_LOGIC;
   var UI = window.GH_UI;
-  var NOTIFY = window.GH_NOTIFY;
   var el = UI.el;
 
   var state = STORAGE.load();
@@ -110,9 +109,6 @@
       state.settings[key] = !state.settings[key];
       persist();
       UI.renderSettings(state);
-      if (key === "notifyInactivity" && state.settings[key] && NOTIFY.isSupported() && NOTIFY.permission() === "default") {
-        NOTIFY.requestPermission();
-      }
       return;
     }
   });
@@ -180,10 +176,6 @@
     persist();
 
     goTo("home");
-    NOTIFY.init({
-      getState: function () { return state; },
-      onIdle: function (message) { UI.showToast(message); }
-    });
     registerServiceWorker();
   }
 

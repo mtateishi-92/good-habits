@@ -4,7 +4,7 @@
    中身を更新したら CACHE_NAME のバージョンを上げること。
    ========================================================================== */
 
-var CACHE_NAME = "good-habits-v1";
+var CACHE_NAME = "good-habits-v2";
 
 var CORE_ASSETS = [
   "./",
@@ -16,7 +16,6 @@ var CORE_ASSETS = [
   "./js/badges.js",
   "./js/storage.js",
   "./js/logic.js",
-  "./js/notifications.js",
   "./js/ui.js",
   "./js/app.js",
   "./icons/icon-192.png",
