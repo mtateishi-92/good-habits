@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{
+    --bg:#0d1526; --surface:#16233d; --surface2:#1f3357;
+    --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874;
+    --text:#f5f1e6; --text-dim:#94a2ba; --burgundy:#8f2d3a;
+  }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;background:var(--bg);}
+  .burst{position:absolute;inset:0;background:
+      repeating-conic-gradient(from 0deg, rgba(201,162,75,0.16) 0deg 4deg, transparent 4deg 16deg);
+    -webkit-mask-image:radial-gradient(circle at 50% 40%, black 0%, black 35%, transparent 68%);
+            mask-image:radial-gradient(circle at 50% 40%, black 0%, black 35%, transparent 68%);
+  }
+  .dim{position:absolute;inset:0;background:radial-gradient(circle at 50% 38%, rgba(13,21,38,0.15), rgba(13,21,38,0.86) 70%);}
+  .confetti{position:absolute;border-radius:2px;}
+  .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px;box-sizing:border-box;}
+  .modal{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px 26px 26px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 24px 60px rgba(0,0,0,0.5);}
+  .medal{width:64px;height:64px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(201,162,75,0.18);}
+  .medal svg{width:32px;height:32px;color:var(--bg);}
+  .title{font-size:21px;font-weight:800;text-align:center;}
+  .sub{font-size:13.5px;color:var(--text-dim);text-align:center;line-height:1.6;}
+  .badgerow{display:flex;align-items:center;gap:10px;background:var(--surface2);border-radius:12px;padding:10px 14px;width:100%;box-sizing:border-box;}
+  .badgeicon{width:34px;height:34px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex:none;}
+  .badgeicon svg{width:17px;height:17px;color:var(--bg);}
+  .badgetext{display:flex;flex-direction:column;gap:2px;}
+  .badgetitle{font-size:12.5px;font-weight:700;}
+  .badgesub{font-size:10.5px;color:var(--text-dim);}
+  .cta{width:100%;box-sizing:border-box;background:var(--gold);color:var(--bg);border:none;border-radius:10px;padding:14px;font-size:14.5px;font-weight:800;font-family:inherit;margin-top:4px;}
+  .dismiss{font-size:12.5px;color:var(--text-dim);}
+</style>
+</helmet>
+<div class="frame">
+  <div class="burst"></div>
+  <div class="confetti" style="left:38px;top:120px;width:8px;height:8px;background:var(--gold);transform:rotate(20deg);"></div>
+  <div class="confetti" style="left:320px;top:160px;width:6px;height:6px;background:var(--gold-bright);transform:rotate(-15deg);"></div>
+  <div class="confetti" style="left:70px;top:560px;width:7px;height:7px;background:var(--burgundy);transform:rotate(40deg);"></div>
+  <div class="confetti" style="left:300px;top:600px;width:9px;height:9px;background:var(--gold);transform:rotate(10deg);"></div>
+  <div class="confetti" style="left:40px;top:340px;width:5px;height:5px;background:#f5f1e6;transform:rotate(0deg);border-radius:50%;"></div>
+  <div class="confetti" style="left:340px;top:380px;width:5px;height:5px;background:#f5f1e6;transform:rotate(0deg);border-radius:50%;"></div>
+  <div class="confetti" style="left:190px;top:110px;width:6px;height:6px;background:var(--burgundy);border-radius:50%;"></div>
+  <div class="dim"></div>
+  <div class="overlay">
+    <div class="modal">
+      <div class="medal"><svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z" stroke="currentColor" stroke-width="1.8"/><path d="M7 5H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4M17 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4" stroke="currentColor" stroke-width="1.8"/><path d="M12 13v3M9 20h6M10 17h4v1a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+      <div class="title serif">おめでとうございます！</div>
+      <div class="sub">「読書30分」が90日間の<br>習慣化に成功しました</div>
+      <div class="badgerow">
+        <div class="badgeicon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M9 14.5L7 21l5-3 5 3-2-6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div class="badgetext">
+          <div class="badgetitle">実績に「継続は力なり」が追加されました</div>
+          <div class="badgesub">バッジコレクションで確認できます</div>
+        </div>
+      </div>
+      <button class="cta">実績を見る</button>
+      <div class="dismiss">閉じる</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

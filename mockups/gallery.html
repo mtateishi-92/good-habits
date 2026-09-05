@@ -1,0 +1,826 @@
+<title>Good-Habbitモックアップ</title>
+<style>
+  :root{
+    --paper:#eef1f4; --paper-2:#ffffff; --ink:#1b2230; --ink-dim:#69728a;
+    --line:#dfe3ea; --gold:#a3782a; --gold-soft:#f3e9d6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#11151d; --paper-2:#1a2028; --ink:#eef1f5; --ink-dim:#8f98ab;
+      --line:#2a3140; --gold:#e0b563; --gold-soft:#2c2413;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#11151d; --paper-2:#1a2028; --ink:#eef1f5; --ink-dim:#8f98ab;
+    --line:#2a3140; --gold:#e0b563; --gold-soft:#2c2413;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;}
+  h1,h2,.serif{font-family:'Shippori Mincho',serif;}
+  a{color:var(--gold);}
+  .wrap{max-width:1120px;margin:0 auto;padding:56px 32px 90px;}
+  .hero{display:flex;flex-direction:column;gap:14px;padding-bottom:44px;border-bottom:1px solid var(--line);margin-bottom:48px;}
+  .eyebrow{font-size:11px;letter-spacing:0.18em;color:var(--gold);font-weight:700;}
+  .hero h1{font-size:34px;margin:0;font-weight:800;text-wrap:balance;}
+  .hero p{font-size:14.5px;line-height:1.8;color:var(--ink-dim);max-width:640px;margin:0;}
+  .metarow{display:flex;gap:18px;margin-top:6px;flex-wrap:wrap;}
+  .metaitem{font-size:12px;color:var(--ink-dim);display:flex;align-items:center;gap:6px;}
+  .metaitem b{color:var(--ink);font-weight:700;}
+  section.block{margin-bottom:56px;}
+  .blockhead{display:flex;flex-direction:column;gap:6px;margin-bottom:24px;max-width:640px;}
+  .blocknum{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:0.1em;}
+  .blockhead h2{font-size:20px;margin:0;font-weight:800;}
+  .blockhead p{font-size:13px;color:var(--ink-dim);line-height:1.7;margin:0;}
+  .row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;}
+  .tile{display:flex;flex-direction:column;gap:12px;}
+  .devframe{border-radius:22px;overflow:hidden;box-shadow:0 18px 40px rgba(20,30,50,0.16), 0 2px 6px rgba(20,30,50,0.08);border:1px solid var(--line);background:var(--paper-2);}
+  .devframe iframe{border:none;display:block;pointer-events:none;}
+  .caption{font-size:12.5px;color:var(--ink-dim);max-width:220px;line-height:1.6;}
+  .caption b{color:var(--ink);font-weight:700;}
+  .sheetframe{border-radius:16px;overflow:hidden;box-shadow:0 14px 30px rgba(20,30,50,0.14);border:1px solid var(--line);}
+  .sheetframe iframe{border:none;display:block;pointer-events:none;}
+  .styleguide{display:flex;gap:40px;flex-wrap:wrap;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:26px 30px;}
+  .sg-col{display:flex;flex-direction:column;gap:12px;min-width:220px;}
+  .sg-label{font-size:11px;letter-spacing:0.1em;color:var(--ink-dim);font-weight:700;}
+  .swrow{display:flex;align-items:center;gap:10px;font-size:12.5px;}
+  .sw{width:22px;height:22px;border-radius:6px;flex:none;border:1px solid var(--line);}
+  .fontrow{display:flex;flex-direction:column;gap:4px;}
+  .fontname{font-size:15px;font-weight:700;}
+  .fontrole{font-size:11.5px;color:var(--ink-dim);}
+  footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-dim);}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">UI MOCKUP — STATIC</div>
+    <h1 class="serif">Good-Habbit デザイン提案</h1>
+    <p>習慣化補助PWA「Good-Habbit」の画面モックアップです。ビジネス調で落ち着きのあるトーンを軸に、ホーム画面のみ2つのUIテーマ（ネイビー×ゴールド／グレー×ブルー）を比較できるようにし、他の画面はネイビー×ゴールドで統一しています。</p>
+    <div class="metarow">
+      <div class="metaitem">画面数　<b>9</b></div>
+      <div class="metaitem">形式　<b>静止画モックアップ</b></div>
+      <div class="metaitem">対応　<b>plan.md 準拠</b></div>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="blockhead">
+      <div class="blocknum">01 — HOME</div>
+      <h2>ホーム画面：テーマ比較</h2>
+      <p>アプリ起動直後の画面。時間帯別メッセージ、習慣ごとの残り日数・連続ストリーク・進捗バーを表示。設定でこの2テーマを切り替えられる想定です。</p>
+    </div>
+    <div class="row">
+      <div class="tile">
+        <div class="devframe" style="width:219px;height:473px;"><iframe data-screen="home_navy" style="width:390px;height:844px;transform:scale(0.5615);transform-origin:top left;"></iframe></div>
+        <div class="caption"><b>クラシック ネイビー×ゴールド</b><br>重厚感のあるビジネストーン。達成率97%の習慣にはゴールドの縁取りで注目を促す。</div>
+      </div>
+      <div class="tile">
+        <div class="devframe" style="width:219px;height:473px;"><iframe data-screen="home_gray" style="width:390px;height:844px;transform:scale(0.5615);transform-origin:top left;"></iframe></div>
+        <div class="caption"><b>モダン グレー×ブルー</b><br>明るく軽快な印象。カード影と丸みを強めたモダンミニマル寄りの表現。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="blockhead">
+      <div class="blocknum">02 — CORE FLOW</div>
+      <h2>コア操作フロー</h2>
+      <p>習慣の登録から、目標日数を達成した瞬間の祝福演出までの流れです。</p>
+    </div>
+    <div class="row">
+      <div class="tile">
+        <div class="devframe" style="width:219px;height:473px;"><iframe data-screen="addhabit" style="width:390px;height:844px;transform:scale(0.5615);transform-origin:top left;"></iframe></div>
+        <div class="caption"><b>習慣を追加</b><br>4段階の日数コースから選択。目安となる行動例を添えて迷わず選べるようにしています。</div>
+      </div>
+      <div class="tile">
+        <div class="devframe" style="width:219px;height:473px;"><iframe data-screen="celebration" style="width:390px;height:844px;transform:scale(0.5615);transform-origin:top left;"></iframe></div>
+        <div class="caption"><b>達成演出</b><br>目標日数の達成時に表示。放射状の光とゴールドの紙吹雪で、派手すぎない祝祭感を演出。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="blockhead">
+      <div class="blocknum">03 — BADGE SYSTEM</div>
+      <h2>実績・バッジ設計</h2>
+      <p>ストリーク系（🔥＋日数カウンター）、コース達成系（芽→木→王冠とブロンズ→シルバー→ゴールドで難易度を可視化）、行動系、そして全習慣達成で解放される特別な「パーフェクト」の4カテゴリに整理しました。タップすると進捗をリング表示する詳細画面に遷移します。</p>
+    </div>
+    <div class="row">
+      <div class="tile">
+        <div class="devframe" style="width:219px;height:473px;"><iframe data-screen="badges" style="width:390px;height:844px;transform:scale(0.5615);transform-origin:top left;"></iframe></div>
+        <div class="caption"><b>実績・バッジ一覧</b><br>カテゴリごとに区切って表示。リング色と足元のカウンターで、見ただけで達成難易度が伝わるようにしています。</div>
+      </div>
+      <div class="tile">
+        <div class="devframe" style="width:219px;height:473px;"><iframe data-screen="badgedetail" style="width:390px;height:844px;transform:scale(0.5615);transform-origin:top left;"></iframe></div>
+        <div class="caption"><b>バッジ詳細（未獲得）</b><br>「継続の炎」（30日連続）の進捗をリング表示。ストリークの道のりを3日→7日→30日の順に可視化し、あと何日かが一目で分かります。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="blockhead">
+      <div class="blocknum">04 — REVIEW & CONTROL</div>
+      <h2>振り返り &amp; 設定</h2>
+      <p>日々の積み重ねを俯瞰するカレンダーヒートマップと、テーマ・更新時刻・通知を管理する設定画面です。</p>
+    </div>
+    <div class="row">
+      <div class="tile">
+        <div class="devframe" style="width:219px;height:473px;"><iframe data-screen="heatmap" style="width:390px;height:844px;transform:scale(0.5615);transform-origin:top left;"></iframe></div>
+        <div class="caption"><b>達成カレンダー</b><br>GitHubの草を思わせる濃淡表示。当日はゴールドのリングで強調しています。</div>
+      </div>
+      <div class="tile">
+        <div class="devframe" style="width:219px;height:473px;"><iframe data-screen="settings" style="width:390px;height:844px;transform:scale(0.5615);transform-origin:top left;"></iframe></div>
+        <div class="caption"><b>設定</b><br>テーマ切替、リスト更新時刻（0〜4時）、通知のON/OFFをまとめた画面。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="blockhead">
+      <div class="blocknum">05 — BRAND</div>
+      <h2>アプリアイコン案</h2>
+      <p>目標達成を象徴する「ゴール・リング」案と、積み重ねを表す「成長ステップ」案の2方向を用意しました。</p>
+    </div>
+    <div class="row">
+      <div class="sheetframe" style="width:319px;height:193px;"><iframe data-screen="appicon" style="width:760px;height:460px;transform:scale(0.4197);transform-origin:top left;"></iframe></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="blockhead">
+      <div class="blocknum">06 — SPEC</div>
+      <h2>スタイルガイド</h2>
+      <p>実装時の参照用に、使用フォント・2テーマのカラー値・バッジの意匠ルールをまとめています。</p>
+    </div>
+    <div class="styleguide">
+      <div class="sg-col">
+        <div class="sg-label">フォント</div>
+        <div class="fontrow"><div class="fontname serif">Shippori Mincho</div><div class="fontrole">見出し・ロゴタイプ</div></div>
+        <div class="fontrow"><div class="fontname">Zen Kaku Gothic New</div><div class="fontrole">本文・UIラベル</div></div>
+      </div>
+      <div class="sg-col">
+        <div class="sg-label">ネイビー×ゴールド</div>
+        <div class="swrow"><div class="sw" style="background:#0d1526"></div>背景　#0D1526</div>
+        <div class="swrow"><div class="sw" style="background:#16233d"></div>カード　#16233D</div>
+        <div class="swrow"><div class="sw" style="background:#c9a24b"></div>アクセント　#C9A24B</div>
+        <div class="swrow"><div class="sw" style="background:#f5f1e6"></div>本文　#F5F1E6</div>
+      </div>
+      <div class="sg-col">
+        <div class="sg-label">グレー×ブルー</div>
+        <div class="swrow"><div class="sw" style="background:#f3f5f9"></div>背景　#F3F5F9</div>
+        <div class="swrow"><div class="sw" style="background:#ffffff"></div>カード　#FFFFFF</div>
+        <div class="swrow"><div class="sw" style="background:#3057c9"></div>アクセント　#3057C9</div>
+        <div class="swrow"><div class="sw" style="background:#1c2433"></div>本文　#1C2433</div>
+      </div>
+      <div class="sg-col">
+        <div class="sg-label">バッジの意匠ルール</div>
+        <div class="swrow"><div class="sw" style="background:#c9a24b"></div>ストリーク　🔥＋達成日数</div>
+        <div class="swrow"><div class="sw" style="background:#b8763c"></div>コース21日　ブロンズ・芽</div>
+        <div class="swrow"><div class="sw" style="background:#b9c3ce"></div>コース90日　シルバー・木</div>
+        <div class="swrow"><div class="sw" style="background:#e8c874"></div>コース180日　ゴールド・王冠</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Good-Habbit UI モックアップ・静止画（操作不可）・plan.md の仕様に基づき作成</footer>
+</div>
+
+<script>
+const screens = {
+
+home_navy: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --bg:#0d1526; --surface:#16233d; --surface2:#1f3357; --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874; --text:#f5f1e6; --text-dim:#94a2ba; --flame:#e8834b; }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  h1,h2,.serif{font-family:'Shippori Mincho',serif;}
+  a{color:var(--gold);} a:hover{color:var(--gold-bright);}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .scroll{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:22px;}
+  .brandrow{display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:8px;}
+  .mark{width:26px;height:26px;border-radius:8px;border:1.6px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-weight:800;color:var(--gold);font-size:13px;}
+  .wordmark{font-size:13px;letter-spacing:0.14em;color:var(--gold);font-weight:700;}
+  .date{font-size:12px;color:var(--text-dim);}
+  .msgcard{display:flex;flex-direction:column;gap:10px;}
+  .msglabel{font-size:10px;letter-spacing:0.16em;color:var(--gold);font-weight:700;}
+  .msgmain{font-size:21px;line-height:1.5;font-weight:700;}
+  .msgquote{font-size:12px;color:var(--text-dim);font-style:italic;border-left:2px solid var(--surface2);padding-left:10px;}
+  .sectionlabel{font-size:11px;letter-spacing:0.16em;color:var(--text-dim);font-weight:700;}
+  .list{display:flex;flex-direction:column;gap:12px;padding-bottom:110px;overflow-y:auto;}
+  .card{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;}
+  .card.highlight{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset;}
+  .check{width:24px;height:24px;border-radius:50%;border:2px solid var(--gold);flex:none;display:flex;align-items:center;justify-content:center;}
+  .check.done{background:var(--gold);}
+  .check svg{width:13px;height:13px;color:var(--bg);}
+  .mid{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;}
+  .hname{font-size:15px;font-weight:700;}
+  .hname.done{color:var(--text-dim);text-decoration:line-through;text-decoration-color:var(--text-dim);}
+  .tag{align-self:flex-start;font-size:10px;color:var(--text-dim);background:var(--surface2);padding:2px 8px;border-radius:999px;}
+  .track{height:4px;border-radius:2px;background:var(--surface2);overflow:hidden;}
+  .fill{height:100%;background:var(--gold);border-radius:2px;}
+  .right{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+  .days{font-size:15px;font-weight:800;color:var(--gold-bright);}
+  .dayslabel{font-size:9px;color:var(--text-dim);}
+  .streak{display:flex;align-items:center;gap:3px;font-size:11px;color:var(--flame);font-weight:700;}
+  .streak svg{width:13px;height:13px;}
+  .fab{position:absolute;right:20px;bottom:96px;width:54px;height:54px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.4);}
+  .fab svg{width:22px;height:22px;color:var(--bg);}
+  .navbar{height:76px;flex:none;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;}
+  .navitem{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-dim);font-size:10px;}
+  .navitem svg{width:20px;height:20px;}
+  .navitem.active{color:var(--gold);}
+</style></head><body>
+<div class="frame">
+  <div class="scroll">
+    <div class="brandrow">
+      <div class="brand"><div class="mark">G</div><div class="wordmark">GOOD-HABBIT</div></div>
+      <div class="date">9月5日（土）</div>
+    </div>
+    <div class="msgcard">
+      <div class="msglabel">本日のメッセージ</div>
+      <div class="msgmain serif">おはようございます。<br>今日も一歩、積み重ねましょう。</div>
+      <div class="msgquote">「ローマは一日にして成らず」</div>
+    </div>
+    <div class="sectionlabel">本日の習慣　4件</div>
+    <div class="list">
+      <div class="card">
+        <div class="check done"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="mid"><div class="hname done">水を飲む習慣</div><div class="tag">簡単な行動・21日コース</div><div class="track"><div class="fill" style="width:57%"></div></div></div>
+        <div class="right"><div class="days">残り9日</div><div class="dayslabel">習慣化まで</div><div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>5</div></div>
+      </div>
+      <div class="card highlight">
+        <div class="check"></div>
+        <div class="mid"><div class="hname">読書30分</div><div class="tag">中程度の行動・90日コース</div><div class="track"><div class="fill" style="width:97%"></div></div></div>
+        <div class="right"><div class="days">残り3日</div><div class="dayslabel">習慣化まで</div><div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>18</div></div>
+      </div>
+      <div class="card">
+        <div class="check"></div>
+        <div class="mid"><div class="hname">朝の散歩</div><div class="tag">中程度の行動・90日コース</div><div class="track"><div class="fill" style="width:40%"></div></div></div>
+        <div class="right"><div class="days">残り54日</div><div class="dayslabel">習慣化まで</div><div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>12</div></div>
+      </div>
+      <div class="card">
+        <div class="check"></div>
+        <div class="mid"><div class="hname">筋トレ</div><div class="tag">負荷の高い行動・180日コース</div><div class="track"><div class="fill" style="width:5%"></div></div></div>
+        <div class="right"><div class="days">残り171日</div><div class="dayslabel">習慣化まで</div><div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>2</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fab"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+  <div class="navbar">
+    <div class="navitem active"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 6h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="10" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 12h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="16" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 18h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>ホーム</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>カレンダー</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M9 14.5L7 21l5-3 5 3-2-6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>バッジ</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>設定</div>
+  </div>
+</div>
+</body></html>`,
+
+home_gray: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --bg:#f3f5f9; --surface:#ffffff; --surface2:#eef1f6; --border:#e3e7ee; --blue:#3057c9; --blue-bright:#4d75e8; --text:#1c2433; --text-dim:#7c8698; --flame:#e07a3f; }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  h1,h2,.serif{font-family:'Shippori Mincho',serif;}
+  a{color:var(--blue);} a:hover{color:var(--blue-bright);}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .scroll{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:22px;}
+  .brandrow{display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:8px;}
+  .mark{width:26px;height:26px;border-radius:9px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-weight:800;color:#fff;font-size:13px;}
+  .wordmark{font-size:13px;letter-spacing:0.14em;color:var(--blue);font-weight:700;}
+  .date{font-size:12px;color:var(--text-dim);}
+  .msgcard{display:flex;flex-direction:column;gap:10px;background:var(--surface);border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(30,50,90,0.06);}
+  .msglabel{font-size:10px;letter-spacing:0.16em;color:var(--blue);font-weight:700;}
+  .msgmain{font-size:20px;line-height:1.5;font-weight:700;}
+  .msgquote{font-size:12px;color:var(--text-dim);font-style:italic;}
+  .sectionlabel{font-size:11px;letter-spacing:0.16em;color:var(--text-dim);font-weight:700;}
+  .list{display:flex;flex-direction:column;gap:12px;padding-bottom:110px;overflow-y:auto;}
+  .card{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:16px;padding:14px;box-shadow:0 4px 14px rgba(30,50,90,0.06);}
+  .card.highlight{box-shadow:0 0 0 1.5px var(--blue), 0 4px 14px rgba(30,50,90,0.06);}
+  .check{width:24px;height:24px;border-radius:50%;border:2px solid var(--blue);flex:none;display:flex;align-items:center;justify-content:center;}
+  .check.done{background:var(--blue);border-color:var(--blue);}
+  .check svg{width:13px;height:13px;color:#fff;}
+  .mid{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;}
+  .hname{font-size:15px;font-weight:700;}
+  .hname.done{color:var(--text-dim);text-decoration:line-through;text-decoration-color:var(--text-dim);}
+  .tag{align-self:flex-start;font-size:10px;color:var(--blue);background:#e8edfb;padding:2px 8px;border-radius:999px;font-weight:700;}
+  .track{height:5px;border-radius:3px;background:var(--surface2);overflow:hidden;}
+  .fill{height:100%;background:var(--blue);border-radius:3px;}
+  .right{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+  .days{font-size:15px;font-weight:800;color:var(--blue);}
+  .dayslabel{font-size:9px;color:var(--text-dim);}
+  .streak{display:flex;align-items:center;gap:3px;font-size:11px;color:var(--flame);font-weight:700;}
+  .streak svg{width:13px;height:13px;}
+  .fab{position:absolute;right:20px;bottom:96px;width:54px;height:54px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(48,87,201,0.4);}
+  .fab svg{width:22px;height:22px;color:#fff;}
+  .navbar{height:76px;flex:none;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;}
+  .navitem{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-dim);font-size:10px;}
+  .navitem svg{width:20px;height:20px;}
+  .navitem.active{color:var(--blue);}
+</style></head><body>
+<div class="frame">
+  <div class="scroll">
+    <div class="brandrow">
+      <div class="brand"><div class="mark">G</div><div class="wordmark">GOOD-HABBIT</div></div>
+      <div class="date">9月5日（土）</div>
+    </div>
+    <div class="msgcard">
+      <div class="msglabel">本日のメッセージ</div>
+      <div class="msgmain serif">おはようございます。<br>今日も一歩、積み重ねましょう。</div>
+      <div class="msgquote">「ローマは一日にして成らず」</div>
+    </div>
+    <div class="sectionlabel">本日の習慣　4件</div>
+    <div class="list">
+      <div class="card">
+        <div class="check done"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="mid"><div class="hname done">水を飲む習慣</div><div class="tag">簡単な行動・21日コース</div><div class="track"><div class="fill" style="width:57%"></div></div></div>
+        <div class="right"><div class="days">残り9日</div><div class="dayslabel">習慣化まで</div><div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>5</div></div>
+      </div>
+      <div class="card highlight">
+        <div class="check"></div>
+        <div class="mid"><div class="hname">読書30分</div><div class="tag">中程度の行動・90日コース</div><div class="track"><div class="fill" style="width:97%"></div></div></div>
+        <div class="right"><div class="days">残り3日</div><div class="dayslabel">習慣化まで</div><div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>18</div></div>
+      </div>
+      <div class="card">
+        <div class="check"></div>
+        <div class="mid"><div class="hname">朝の散歩</div><div class="tag">中程度の行動・90日コース</div><div class="track"><div class="fill" style="width:40%"></div></div></div>
+        <div class="right"><div class="days">残り54日</div><div class="dayslabel">習慣化まで</div><div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>12</div></div>
+      </div>
+      <div class="card">
+        <div class="check"></div>
+        <div class="mid"><div class="hname">筋トレ</div><div class="tag">負荷の高い行動・180日コース</div><div class="track"><div class="fill" style="width:5%"></div></div></div>
+        <div class="right"><div class="days">残り171日</div><div class="dayslabel">習慣化まで</div><div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>2</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fab"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+  <div class="navbar">
+    <div class="navitem active"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 6h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="10" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 12h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="16" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 18h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>ホーム</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>カレンダー</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M9 14.5L7 21l5-3 5 3-2-6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>バッジ</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>設定</div>
+  </div>
+</div>
+</body></html>`,
+
+addhabit: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --bg:#0d1526; --surface:#16233d; --surface2:#1f3357; --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874; --text:#f5f1e6; --text-dim:#94a2ba; }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  a{color:var(--gold);} a:hover{color:var(--gold-bright);}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .content{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:26px;}
+  .header{display:flex;align-items:center;gap:14px;}
+  .backbtn{width:32px;height:32px;border-radius:8px;background:var(--surface);display:flex;align-items:center;justify-content:center;flex:none;}
+  .backbtn svg{width:16px;height:16px;color:var(--text);}
+  .htitle{font-size:18px;font-weight:800;}
+  .field label{display:block;font-size:11px;letter-spacing:0.1em;color:var(--text-dim);font-weight:700;margin-bottom:8px;}
+  .input{width:100%;box-sizing:border-box;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;font-size:15px;color:var(--text);font-family:inherit;}
+  .input::placeholder{color:var(--text-dim);}
+  .sectionlabel{font-size:11px;letter-spacing:0.1em;color:var(--text-dim);font-weight:700;}
+  .options{display:flex;flex-direction:column;gap:12px;overflow-y:auto;padding-bottom:16px;}
+  .opt{display:flex;align-items:center;gap:14px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;}
+  .opt.selected{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset;}
+  .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--gold);flex:none;display:flex;align-items:center;justify-content:center;}
+  .radio .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .optmid{flex:1;display:flex;flex-direction:column;gap:3px;}
+  .optname{font-size:14.5px;font-weight:700;}
+  .optex{font-size:11.5px;color:var(--text-dim);}
+  .optdays{flex:none;font-size:15px;font-weight:800;color:var(--gold-bright);}
+  .footer{flex:none;padding:16px 20px 24px;background:var(--bg);border-top:1px solid var(--border);}
+  .cta{width:100%;box-sizing:border-box;background:var(--gold);color:var(--bg);border:none;border-radius:10px;padding:15px;font-size:15px;font-weight:800;font-family:inherit;}
+</style></head><body>
+<div class="frame">
+  <div class="content">
+    <div class="header">
+      <div class="backbtn"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 5l-6 7 6 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="htitle serif">新しい習慣を追加</div>
+    </div>
+    <div class="field"><label>習慣名</label><input class="input" placeholder="例）朝の散歩" value="朝の散歩"/></div>
+    <div class="sectionlabel">習慣化までの日数を選択</div>
+    <div class="options">
+      <div class="opt"><div class="radio"></div><div class="optmid"><div class="optname">簡単な行動</div><div class="optex">目安：水を飲む、食後に歯を磨く</div></div><div class="optdays">21日</div></div>
+      <div class="opt selected"><div class="radio"><div class="dot"></div></div><div class="optmid"><div class="optname">中程度の行動</div><div class="optex">目安：読書、朝の散歩</div></div><div class="optdays">90日</div></div>
+      <div class="opt"><div class="radio"></div><div class="optmid"><div class="optname">負荷の高い行動</div><div class="optex">目安：筋トレ、ハードな学習習慣</div></div><div class="optdays">180日</div></div>
+      <div class="opt"><div class="radio"></div><div class="optmid"><div class="optname">達成動作のテスト用</div><div class="optex">動作確認用の短期コース</div></div><div class="optdays">1日</div></div>
+    </div>
+  </div>
+  <div class="footer"><button class="cta">習慣を登録する</button></div>
+</div>
+</body></html>`,
+
+celebration: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --bg:#0d1526; --surface:#16233d; --surface2:#1f3357; --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874; --text:#f5f1e6; --text-dim:#94a2ba; --burgundy:#8f2d3a; }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;background:var(--bg);}
+  .burst{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg, rgba(201,162,75,0.16) 0deg 4deg, transparent 4deg 16deg);-webkit-mask-image:radial-gradient(circle at 50% 40%, black 0%, black 35%, transparent 68%);mask-image:radial-gradient(circle at 50% 40%, black 0%, black 35%, transparent 68%);}
+  .dim{position:absolute;inset:0;background:radial-gradient(circle at 50% 38%, rgba(13,21,38,0.15), rgba(13,21,38,0.86) 70%);}
+  .confetti{position:absolute;border-radius:2px;}
+  .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px;box-sizing:border-box;}
+  .modal{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px 26px 26px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 24px 60px rgba(0,0,0,0.5);}
+  .medal{width:64px;height:64px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(201,162,75,0.18);}
+  .medal svg{width:32px;height:32px;color:var(--bg);}
+  .title{font-size:21px;font-weight:800;text-align:center;}
+  .sub{font-size:13.5px;color:var(--text-dim);text-align:center;line-height:1.6;}
+  .badgerow{display:flex;align-items:center;gap:10px;background:var(--surface2);border-radius:12px;padding:10px 14px;width:100%;box-sizing:border-box;}
+  .badgeicon{width:34px;height:34px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex:none;}
+  .badgeicon svg{width:17px;height:17px;color:var(--bg);}
+  .badgetext{display:flex;flex-direction:column;gap:2px;}
+  .badgetitle{font-size:12.5px;font-weight:700;}
+  .badgesub{font-size:10.5px;color:var(--text-dim);}
+  .cta{width:100%;box-sizing:border-box;background:var(--gold);color:var(--bg);border:none;border-radius:10px;padding:14px;font-size:14.5px;font-weight:800;font-family:inherit;margin-top:4px;}
+  .dismiss{font-size:12.5px;color:var(--text-dim);}
+</style></head><body>
+<div class="frame">
+  <div class="burst"></div>
+  <div class="confetti" style="left:38px;top:120px;width:8px;height:8px;background:var(--gold);transform:rotate(20deg);"></div>
+  <div class="confetti" style="left:320px;top:160px;width:6px;height:6px;background:var(--gold-bright);transform:rotate(-15deg);"></div>
+  <div class="confetti" style="left:70px;top:560px;width:7px;height:7px;background:var(--burgundy);transform:rotate(40deg);"></div>
+  <div class="confetti" style="left:300px;top:600px;width:9px;height:9px;background:var(--gold);transform:rotate(10deg);"></div>
+  <div class="confetti" style="left:40px;top:340px;width:5px;height:5px;background:#f5f1e6;border-radius:50%;"></div>
+  <div class="confetti" style="left:340px;top:380px;width:5px;height:5px;background:#f5f1e6;border-radius:50%;"></div>
+  <div class="confetti" style="left:190px;top:110px;width:6px;height:6px;background:var(--burgundy);border-radius:50%;"></div>
+  <div class="dim"></div>
+  <div class="overlay">
+    <div class="modal">
+      <div class="medal"><svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z" stroke="currentColor" stroke-width="1.8"/><path d="M7 5H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4M17 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4" stroke="currentColor" stroke-width="1.8"/><path d="M12 13v3M9 20h6M10 17h4v1a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+      <div class="title serif">おめでとうございます！</div>
+      <div class="sub">「読書30分」が90日間の<br>習慣化に成功しました</div>
+      <div class="badgerow">
+        <div class="badgeicon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M9 14.5L7 21l5-3 5 3-2-6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div class="badgetext"><div class="badgetitle">実績に「継続は力なり」が追加されました</div><div class="badgesub">バッジコレクションで確認できます</div></div>
+      </div>
+      <button class="cta">実績を見る</button>
+      <div class="dismiss">閉じる</div>
+    </div>
+  </div>
+</div>
+</body></html>`,
+
+badges: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --bg:#0d1526; --surface:#16233d; --surface2:#1f3357; --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874; --text:#f5f1e6; --text-dim:#94a2ba; --bronze:#b8763c; --silver:#b9c3ce; }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .content{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:18px;}
+  .htitle{font-size:19px;font-weight:800;}
+  .summary{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;}
+  .sumrow{display:flex;justify-content:space-between;align-items:baseline;}
+  .sumcount{font-size:20px;font-weight:800;color:var(--gold-bright);}
+  .sumlabel{font-size:11px;color:var(--text-dim);}
+  .track{height:6px;border-radius:3px;background:var(--surface2);overflow:hidden;}
+  .fill{height:100%;background:var(--gold);border-radius:3px;}
+  .catlabel{font-size:10px;letter-spacing:0.12em;color:var(--text-dim);font-weight:700;padding-top:2px;}
+  .grid{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px;}
+  .tile{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 10px;text-align:center;}
+  .tile.locked{opacity:0.42;}
+  .bicon{width:50px;height:50px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;position:relative;}
+  .bicon.locked{background:var(--surface2);}
+  .bicon.bronze{background:var(--bronze);}
+  .bicon.silver{background:var(--silver);}
+  .bicon.gold-ring{box-shadow:0 0 0 3px rgba(232,200,116,0.35);}
+  .bicon svg{width:24px;height:24px;color:var(--bg);}
+  .bicon.silver svg{color:#1c2433;}
+  .bicon.locked svg{color:var(--text-dim);}
+  .count{position:absolute;bottom:-3px;right:-3px;background:var(--bg);border:2px solid var(--surface);border-radius:999px;min-width:18px;height:18px;font-size:9px;font-weight:800;color:var(--gold-bright);display:flex;align-items:center;justify-content:center;padding:0 4px;}
+  .tile.locked .count{color:var(--text-dim);}
+  .btitle{font-size:12px;font-weight:700;}
+  .bdate{font-size:9.5px;color:var(--text-dim);}
+  .scrollarea{overflow-y:auto;padding-bottom:100px;display:flex;flex-direction:column;gap:16px;}
+  .capstone{position:relative;overflow:hidden;border-radius:16px;padding:20px 18px;display:flex;align-items:center;gap:16px;background:radial-gradient(120% 160% at 15% 0%, rgba(232,200,116,0.22), transparent 60%), var(--surface);border:1px solid var(--gold);}
+  .capicon{width:56px;height:56px;border-radius:50%;background:linear-gradient(160deg,var(--gold-bright),var(--gold));display:flex;align-items:center;justify-content:center;flex:none;opacity:0.5;}
+  .capicon svg{width:28px;height:28px;color:var(--bg);}
+  .capmid{display:flex;flex-direction:column;gap:3px;}
+  .captitle{font-size:14px;font-weight:800;}
+  .capdesc{font-size:11px;color:var(--text-dim);}
+  .navbar{height:76px;flex:none;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;}
+  .navitem{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-dim);font-size:10px;}
+  .navitem svg{width:20px;height:20px;}
+  .navitem.active{color:var(--gold);}
+</style></head><body>
+<div class="frame">
+  <div class="content">
+    <div class="htitle serif">実績・バッジ</div>
+    <div class="summary"><div class="sumrow"><div class="sumcount">6 / 9</div><div class="sumlabel">バッジ獲得</div></div><div class="track"><div class="fill" style="width:67%"></div></div></div>
+    <div class="scrollarea">
+      <div>
+        <div class="catlabel">ストリーク</div>
+        <div class="grid" style="margin-top:10px;">
+          <div class="tile"><div class="bicon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg><div class="count">3</div></div><div class="btitle">三日坊主卒業</div><div class="bdate">8月5日 獲得</div></div>
+          <div class="tile"><div class="bicon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg><div class="count">7</div></div><div class="btitle">一週間の壁</div><div class="bdate">8月9日 獲得</div></div>
+          <div class="tile locked"><div class="bicon locked"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg><div class="count">30</div></div><div class="btitle">継続の炎</div><div class="bdate">未獲得（18/30日）</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="catlabel">コース達成</div>
+        <div class="grid" style="margin-top:10px;">
+          <div class="tile"><div class="bicon bronze"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21V9M12 9C8 9 6 6 6 3c4 0 6 3 6 6zm0 0c0-3 2-6 6-6 0 3-2 6-6 6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><div class="btitle">習慣の芽（21日）</div><div class="bdate">8月23日 獲得</div></div>
+          <div class="tile"><div class="bicon silver"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 15c-4 0-6-2.5-6-5.5S8 4 12 4s6 2.5 6 5.5S16 15 12 15z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><div class="btitle">継続は力なり（90日）</div><div class="bdate">9月5日 獲得</div></div>
+          <div class="tile locked"><div class="bicon locked gold-ring"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18h16l-1.4-8-4.1 3.2L12 7l-2.5 6.2L5.4 10 4 18z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 20h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="btitle">マスター（180日）</div><div class="bdate">未獲得</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="catlabel">行動</div>
+        <div class="grid" style="margin-top:10px;">
+          <div class="tile"><div class="bicon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 4h11l-2.5 3.5L17 11H6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><div class="btitle">はじめの一歩</div><div class="bdate">8月2日 獲得</div></div>
+          <div class="tile"><div class="bicon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 3v18M19 3v18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 4h6.5l-1.6 2.5L11.5 9H5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M19 4h-6.5l1.6 2.5L12.5 9H19" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></div><div class="btitle">二刀流</div><div class="bdate">9月1日 獲得</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="catlabel">コンプリート</div>
+        <div class="capstone" style="margin-top:10px;">
+          <div class="capicon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+              <path d="M9 5c-2 1-3 3-3 5"/><path d="M8 9c-2 1-3 3-3 5"/><path d="M8 13c-1.5 1.2-2.5 3-2.5 5"/>
+              <path d="M15 5c2 1 3 3 3 5"/><path d="M16 9c2 1 3 3 3 5"/><path d="M16 13c1.5 1.2 2.5 3 2.5 5"/>
+            </svg>
+          </div>
+          <div class="capmid"><div class="captitle">パーフェクト</div><div class="capdesc">登録した習慣をすべて習慣化すると解放される特別な実績</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar">
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 6h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="10" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 12h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="16" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 18h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>ホーム</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>カレンダー</div>
+    <div class="navitem active"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M9 14.5L7 21l5-3 5 3-2-6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>バッジ</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>設定</div>
+  </div>
+</div>
+</body></html>`,
+
+badgedetail: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --bg:#0d1526; --surface:#16233d; --surface2:#1f3357; --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874; --text:#f5f1e6; --text-dim:#94a2ba; }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .content{flex:1;overflow:hidden;padding:52px 24px 0;display:flex;flex-direction:column;gap:26px;}
+  .header{display:flex;align-items:center;gap:14px;}
+  .backbtn{width:32px;height:32px;border-radius:8px;background:var(--surface);display:flex;align-items:center;justify-content:center;flex:none;}
+  .backbtn svg{width:16px;height:16px;color:var(--text);}
+  .htitle{font-size:16px;font-weight:800;color:var(--text-dim);}
+  .hero{display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .ringwrap{position:relative;width:132px;height:132px;display:flex;align-items:center;justify-content:center;}
+  .ringwrap svg.ring{position:absolute;inset:0;transform:rotate(-90deg);}
+  .ringtrack{stroke:var(--surface2);}
+  .ringfill{stroke:var(--gold);stroke-linecap:round;}
+  .badgecore{width:88px;height:88px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;}
+  .badgecore svg{width:40px;height:40px;color:var(--text-dim);}
+  .bname{font-size:20px;font-weight:800;text-align:center;}
+  .bcat{font-size:10px;letter-spacing:0.12em;color:var(--gold);font-weight:700;background:rgba(201,162,75,0.14);padding:4px 10px;border-radius:999px;}
+  .bdesc{font-size:13px;color:var(--text-dim);text-align:center;line-height:1.7;max-width:280px;}
+  .progresscard{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;}
+  .progresshead{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;}
+  .progresshead b{color:var(--gold-bright);font-size:15px;}
+  .track{height:8px;border-radius:4px;background:var(--surface2);overflow:hidden;}
+  .fill{height:100%;background:var(--gold);border-radius:4px;}
+  .progressnote{font-size:11.5px;color:var(--text-dim);text-align:center;}
+  .roadmap{display:flex;flex-direction:column;gap:12px;}
+  .roadmaplabel{font-size:11px;letter-spacing:0.1em;color:var(--text-dim);font-weight:700;}
+  .nodes{display:flex;align-items:center;}
+  .node{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;flex:1;}
+  .nodecircle{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+  .nodecircle.current{background:var(--surface2);box-shadow:0 0 0 2px var(--gold);}
+  .nodecircle svg{width:17px;height:17px;color:var(--bg);}
+  .nodecircle.current svg{color:var(--gold-bright);}
+  .nodelabel{font-size:10px;color:var(--text-dim);}
+  .nodelabel.current{color:var(--gold-bright);font-weight:700;}
+  .connector{position:absolute;top:18px;left:50%;width:100%;height:2px;background:var(--gold);z-index:0;}
+  .connector.dim{background:var(--surface2);}
+  .check{position:absolute;bottom:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;}
+  .check svg{width:8px;height:8px;color:var(--gold);}
+</style></head><body>
+<div class="frame">
+  <div class="content">
+    <div class="header">
+      <div class="backbtn"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 5l-6 7 6 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="htitle">バッジ詳細</div>
+    </div>
+    <div class="hero">
+      <div class="ringwrap">
+        <svg class="ring" viewBox="0 0 100 100">
+          <circle class="ringtrack" cx="50" cy="50" r="42" stroke-width="6" fill="none"/>
+          <circle class="ringfill" cx="50" cy="50" r="42" stroke-width="6" fill="none" stroke-dasharray="263.9" stroke-dashoffset="105.6"/>
+        </svg>
+        <div class="badgecore"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg></div>
+      </div>
+      <div class="bname serif">継続の炎</div>
+      <div class="bcat">ストリーク系</div>
+      <div class="bdesc">習慣を30日間、一日も欠かさず連続で達成すると解放されます。</div>
+    </div>
+    <div class="progresscard">
+      <div class="progresshead"><span>現在の連続日数</span><b>18 / 30日</b></div>
+      <div class="track"><div class="fill" style="width:60%"></div></div>
+      <div class="progressnote">あと12日でこのバッジが解放されます</div>
+    </div>
+    <div class="roadmap">
+      <div class="roadmaplabel">ストリークの道のり</div>
+      <div class="nodes">
+        <div class="node">
+          <div class="connector"></div>
+          <div class="nodecircle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg><div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="nodelabel">3日</div>
+        </div>
+        <div class="node">
+          <div class="connector"></div>
+          <div class="nodecircle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg><div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="nodelabel">7日</div>
+        </div>
+        <div class="node">
+          <div class="connector dim" style="width:0;"></div>
+          <div class="nodecircle current"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg></div>
+          <div class="nodelabel current">30日</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>`,
+
+heatmap: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --bg:#0d1526; --surface:#16233d; --surface2:#1f3357; --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874; --text:#f5f1e6; --text-dim:#94a2ba; --flame:#e8834b; --l1:rgba(201,162,75,0.28); --l2:rgba(201,162,75,0.5); --l3:rgba(201,162,75,0.74); }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .content{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:20px;}
+  .htitle{font-size:19px;font-weight:800;}
+  .monthrow{display:flex;align-items:center;justify-content:space-between;}
+  .monthlabel{font-size:15px;font-weight:700;}
+  .chev{width:28px;height:28px;border-radius:8px;background:var(--surface);display:flex;align-items:center;justify-content:center;}
+  .chev svg{width:14px;height:14px;color:var(--text-dim);}
+  .cal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;}
+  .weekrow{display:grid;grid-template-columns:repeat(7, minmax(0,1fr));gap:6px;}
+  .weekrow div{text-align:center;font-size:10px;color:var(--text-dim);font-weight:700;}
+  .daygrid{display:grid;grid-template-columns:repeat(7, minmax(0,1fr));gap:6px;}
+  .day{aspect-ratio:1;border-radius:6px;background:var(--surface2);position:relative;}
+  .day span{position:absolute;top:3px;left:5px;font-size:8px;color:var(--text-dim);}
+  .day.blank{background:transparent;}
+  .day.l1{background:var(--l1);}
+  .day.l2{background:var(--l2);}
+  .day.l3{background:var(--l3);}
+  .day.l4{background:var(--gold);}
+  .day.l4 span, .day.l3 span{color:var(--bg);}
+  .day.today{box-shadow:0 0 0 2px var(--gold-bright);}
+  .legend{display:flex;align-items:center;gap:6px;justify-content:flex-end;font-size:10px;color:var(--text-dim);}
+  .legend .sw{width:11px;height:11px;border-radius:3px;}
+  .stats{display:flex;gap:12px;}
+  .stat{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;}
+  .statval{font-size:19px;font-weight:800;color:var(--gold-bright);display:flex;align-items:center;gap:5px;}
+  .statval svg{width:16px;height:16px;color:var(--flame);}
+  .statlabel{font-size:10.5px;color:var(--text-dim);}
+  .navbar{height:76px;flex:none;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;margin-top:auto;}
+  .navitem{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-dim);font-size:10px;}
+  .navitem svg{width:20px;height:20px;}
+  .navitem.active{color:var(--gold);}
+</style></head><body>
+<div class="frame">
+  <div class="content">
+    <div class="htitle serif">達成カレンダー</div>
+    <div class="monthrow">
+      <div class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="monthlabel">2026年9月</div>
+      <div class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+    <div class="cal">
+      <div class="weekrow"><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div>土</div><div>日</div></div>
+      <div class="daygrid">
+        <div class="day blank"></div>
+        <div class="day l2"><span>1</span></div><div class="day l3"><span>2</span></div><div class="day l1"><span>3</span></div><div class="day l4"><span>4</span></div><div class="day l3 today"><span>5</span></div><div class="day"><span>6</span></div>
+        <div class="day l2"><span>7</span></div><div class="day l3"><span>8</span></div><div class="day l4"><span>9</span></div><div class="day l2"><span>10</span></div><div class="day l1"><span>11</span></div><div class="day"><span>12</span></div>
+        <div class="day l3"><span>13</span></div><div class="day l4"><span>14</span></div><div class="day l3"><span>15</span></div><div class="day l2"><span>16</span></div><div class="day l1"><span>17</span></div><div class="day"><span>18</span></div>
+        <div class="day l4"><span>19</span></div><div class="day l3"><span>20</span></div><div class="day l2"><span>21</span></div><div class="day l3"><span>22</span></div><div class="day l1"><span>23</span></div><div class="day"><span>24</span></div>
+        <div class="day l2"><span>25</span></div><div class="day l3"><span>26</span></div><div class="day l4"><span>27</span></div><div class="day l2"><span>28</span></div><div class="day l1"><span>29</span></div><div class="day l3"><span>30</span></div>
+      </div>
+      <div class="legend">少ない<div class="sw" style="background:var(--surface2)"></div><div class="sw" style="background:var(--l1)"></div><div class="sw" style="background:var(--l2)"></div><div class="sw" style="background:var(--l3)"></div><div class="sw" style="background:var(--gold)"></div>多い</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="statval"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>18日</div><div class="statlabel">現在の最長ストリーク</div></div>
+      <div class="stat"><div class="statval">82%</div><div class="statlabel">今月の達成率</div></div>
+    </div>
+  </div>
+  <div class="navbar">
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 6h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="10" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 12h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="16" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 18h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>ホーム</div>
+    <div class="navitem active"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>カレンダー</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M9 14.5L7 21l5-3 5 3-2-6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>バッジ</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>設定</div>
+  </div>
+</div>
+</body></html>`,
+
+settings: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --bg:#0d1526; --surface:#16233d; --surface2:#1f3357; --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874; --text:#f5f1e6; --text-dim:#94a2ba; --blue:#3057c9; }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .content{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:24px;}
+  .htitle{font-size:19px;font-weight:800;}
+  .sectionlabel{font-size:11px;letter-spacing:0.1em;color:var(--text-dim);font-weight:700;}
+  .themerow{display:flex;flex-direction:column;gap:10px;}
+  .theme{display:flex;align-items:center;gap:12px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;}
+  .theme.selected{border-color:var(--gold);}
+  .swatch{width:44px;height:44px;border-radius:9px;flex:none;display:flex;overflow:hidden;}
+  .swatch div{flex:1;}
+  .themename{font-size:13.5px;font-weight:700;flex:1;}
+  .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex:none;}
+  .radio .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .chiprow{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{padding:9px 16px;border-radius:999px;background:var(--surface);border:1.5px solid var(--border);font-size:13px;color:var(--text-dim);font-weight:700;}
+  .chip.selected{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+  .togglecard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:12px;}
+  .togglerow{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border);}
+  .togglerow:last-child{border-bottom:none;}
+  .togglemid{flex:1;display:flex;flex-direction:column;gap:3px;}
+  .togglename{font-size:13.5px;font-weight:700;}
+  .toggledesc{font-size:11px;color:var(--text-dim);}
+  .toggle{width:42px;height:24px;border-radius:999px;background:var(--gold);display:flex;align-items:center;padding:3px;flex:none;justify-content:flex-end;}
+  .toggle.off{background:var(--surface2);justify-content:flex-start;}
+  .knob{width:18px;height:18px;border-radius:50%;background:var(--text);}
+  .footer{flex:none;padding:14px 0 22px;text-align:center;font-size:11px;color:var(--text-dim);}
+</style></head><body>
+<div class="frame">
+  <div class="content">
+    <div class="htitle serif">設定</div>
+    <div>
+      <div class="sectionlabel" style="margin-bottom:10px;">テーマ</div>
+      <div class="themerow">
+        <div class="theme selected"><div class="swatch"><div style="background:#0d1526"></div><div style="background:#c9a24b"></div></div><div class="themename">クラシック ネイビー×ゴールド</div><div class="radio"><div class="dot"></div></div></div>
+        <div class="theme"><div class="swatch"><div style="background:#f3f5f9"></div><div style="background:#3057c9"></div></div><div class="themename">モダン グレー×ブルー</div><div class="radio"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sectionlabel" style="margin-bottom:10px;">リスト更新時刻</div>
+      <div class="chiprow"><div class="chip">0時</div><div class="chip">1時</div><div class="chip selected">2時</div><div class="chip">3時</div><div class="chip">4時</div></div>
+    </div>
+    <div>
+      <div class="sectionlabel" style="margin-bottom:10px;">通知</div>
+      <div class="togglecard">
+        <div class="togglerow"><div class="togglemid"><div class="togglename">非操作リマインダー</div><div class="toggledesc">アプリを開いたまま30分操作がない場合に通知</div></div><div class="toggle"><div class="knob"></div></div></div>
+        <div class="togglerow"><div class="togglemid"><div class="togglename">未達成日のバナー通知</div><div class="toggledesc">前日サボった習慣がある場合にアプリ内で通知</div></div><div class="toggle"><div class="knob"></div></div></div>
+        <div class="togglerow"><div class="togglemid"><div class="togglename">達成演出サウンド</div><div class="toggledesc">花火演出・称賛コメント時の効果音</div></div><div class="toggle off"><div class="knob"></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">Good-Habbit v1.0.0</div>
+</div>
+</body></html>`,
+
+appicon: `<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --paper:#eef0f4; --ink:#20262f; --inkdim:#767f8c; }
+  body{margin:0;background:var(--paper);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .sheet{width:760px;height:460px;box-sizing:border-box;padding:30px 34px;display:flex;flex-direction:column;gap:22px;}
+  .sheettitle{font-size:16px;font-weight:800;}
+  .cols{display:flex;gap:36px;flex:1;}
+  .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(20,30,50,0.06);}
+  .collabel{font-size:12px;letter-spacing:0.12em;color:var(--inkdim);font-weight:700;}
+  .icon{border-radius:36px;background:radial-gradient(120% 120% at 30% 20%, #1c2c4c, #0d1526 70%);display:flex;align-items:center;justify-content:center;flex:none;}
+  .icon.lg{width:150px;height:150px;}
+  .sizerow{display:flex;align-items:center;gap:18px;}
+  .icon.md{width:80px;height:80px;border-radius:19px;}
+  .icon.sm{width:44px;height:44px;border-radius:11px;}
+  .sizelabel{font-size:10px;color:var(--inkdim);text-align:center;margin-top:4px;}
+  .sizeitem{display:flex;flex-direction:column;align-items:center;}
+</style></head><body>
+<div class="sheet">
+  <div class="sheettitle serif">アプリアイコン案</div>
+  <div class="cols">
+    <div class="col">
+      <div class="collabel">案A ・ ゴール・リング</div>
+      <div class="icon lg"><svg width="72" height="72" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.4" stroke="#c9a24b" stroke-width="1.6"/><circle cx="12" cy="12" r="5.4" stroke="#c9a24b" stroke-width="1.6" opacity="0.55"/><path d="M8.6 12.3l2.3 2.3 4.5-4.9" stroke="#e8c874" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="sizerow">
+        <div class="sizeitem"><div class="icon md"><svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.4" stroke="#c9a24b" stroke-width="1.6"/><circle cx="12" cy="12" r="5.4" stroke="#c9a24b" stroke-width="1.6" opacity="0.55"/><path d="M8.6 12.3l2.3 2.3 4.5-4.9" stroke="#e8c874" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sizelabel">80px</div></div>
+        <div class="sizeitem"><div class="icon sm"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.4" stroke="#c9a24b" stroke-width="1.8"/><path d="M8.6 12.3l2.3 2.3 4.5-4.9" stroke="#e8c874" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sizelabel">44px</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="collabel">案B ・ 成長ステップ</div>
+      <div class="icon lg"><svg width="76" height="76" viewBox="0 0 24 24" fill="none"><rect x="4" y="14" width="3.6" height="6" rx="0.8" fill="#c9a24b"/><rect x="10.2" y="10" width="3.6" height="10" rx="0.8" fill="#dcb35e"/><rect x="16.4" y="5.5" width="3.6" height="14.5" rx="0.8" fill="#e8c874"/><path d="M17 3.4c.6 1.7-1.6 2.2-1.6 4.4a2.7 2.7 0 0 0 5.4 0c0-1.1-.5-1.6-1.1-2.1.3 1.1-.5 1.6-1 1 .5-1.6-.5-2.2-1.7-3.3z" fill="#e07a3f"/></svg></div>
+      <div class="sizerow">
+        <div class="sizeitem"><div class="icon md"><svg width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="4" y="14" width="3.6" height="6" rx="0.8" fill="#c9a24b"/><rect x="10.2" y="10" width="3.6" height="10" rx="0.8" fill="#dcb35e"/><rect x="16.4" y="5.5" width="3.6" height="14.5" rx="0.8" fill="#e8c874"/><path d="M17 3.4c.6 1.7-1.6 2.2-1.6 4.4a2.7 2.7 0 0 0 5.4 0c0-1.1-.5-1.6-1.1-2.1.3 1.1-.5 1.6-1 1 .5-1.6-.5-2.2-1.7-3.3z" fill="#e07a3f"/></svg></div><div class="sizelabel">80px</div></div>
+        <div class="sizeitem"><div class="icon sm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="14" width="3.6" height="6" rx="0.8" fill="#c9a24b"/><rect x="10.2" y="10" width="3.6" height="10" rx="0.8" fill="#dcb35e"/><rect x="16.4" y="5.5" width="3.6" height="14.5" rx="0.8" fill="#e8c874"/></svg></div><div class="sizelabel">44px</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>`
+
+};
+document.querySelectorAll('iframe[data-screen]').forEach(function(f){ f.srcdoc = screens[f.dataset.screen]; });
+</script>

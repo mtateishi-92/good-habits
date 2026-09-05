@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{ --navy:#0d1526; --navy2:#16233d; --gold:#c9a24b; --gold-bright:#e8c874; --paper:#eef0f4; --ink:#20262f; --inkdim:#767f8c; }
+  body{margin:0;background:var(--paper);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .sheet{width:760px;height:460px;box-sizing:border-box;padding:30px 34px;display:flex;flex-direction:column;gap:22px;}
+  .sheettitle{font-size:16px;font-weight:800;}
+  .cols{display:flex;gap:36px;flex:1;}
+  .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(20,30,50,0.06);}
+  .collabel{font-size:12px;letter-spacing:0.12em;color:var(--inkdim);font-weight:700;}
+  .icon{border-radius:36px;background:radial-gradient(120% 120% at 30% 20%, #1c2c4c, #0d1526 70%);display:flex;align-items:center;justify-content:center;flex:none;}
+  .icon.lg{width:150px;height:150px;}
+  .sizerow{display:flex;align-items:center;gap:18px;}
+  .icon.md{width:80px;height:80px;border-radius:19px;}
+  .icon.sm{width:44px;height:44px;border-radius:11px;}
+  .sizelabel{font-size:10px;color:var(--inkdim);text-align:center;margin-top:4px;}
+  .sizeitem{display:flex;flex-direction:column;align-items:center;}
+</style>
+</helmet>
+<div class="sheet">
+  <div class="sheettitle serif">アプリアイコン案</div>
+  <div class="cols">
+    <div class="col">
+      <div class="collabel">案A ・ ゴール・リング</div>
+      <div class="icon lg"><svg width="72" height="72" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.4" stroke="#c9a24b" stroke-width="1.6"/><circle cx="12" cy="12" r="5.4" stroke="#c9a24b" stroke-width="1.6" opacity="0.55"/><path d="M8.6 12.3l2.3 2.3 4.5-4.9" stroke="#e8c874" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="sizerow">
+        <div class="sizeitem"><div class="icon md"><svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.4" stroke="#c9a24b" stroke-width="1.6"/><circle cx="12" cy="12" r="5.4" stroke="#c9a24b" stroke-width="1.6" opacity="0.55"/><path d="M8.6 12.3l2.3 2.3 4.5-4.9" stroke="#e8c874" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sizelabel">80px</div></div>
+        <div class="sizeitem"><div class="icon sm"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.4" stroke="#c9a24b" stroke-width="1.8"/><path d="M8.6 12.3l2.3 2.3 4.5-4.9" stroke="#e8c874" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sizelabel">44px</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="collabel">案B ・ 成長ステップ</div>
+      <div class="icon lg">
+        <svg width="76" height="76" viewBox="0 0 24 24" fill="none">
+          <rect x="4" y="14" width="3.6" height="6" rx="0.8" fill="#c9a24b"/>
+          <rect x="10.2" y="10" width="3.6" height="10" rx="0.8" fill="#dcb35e"/>
+          <rect x="16.4" y="5.5" width="3.6" height="14.5" rx="0.8" fill="#e8c874"/>
+          <path d="M17 3.4c.6 1.7-1.6 2.2-1.6 4.4a2.7 2.7 0 0 0 5.4 0c0-1.1-.5-1.6-1.1-2.1.3 1.1-.5 1.6-1 1 .5-1.6-.5-2.2-1.7-3.3z" fill="#e07a3f"/>
+        </svg>
+      </div>
+      <div class="sizerow">
+        <div class="sizeitem"><div class="icon md">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="14" width="3.6" height="6" rx="0.8" fill="#c9a24b"/>
+            <rect x="10.2" y="10" width="3.6" height="10" rx="0.8" fill="#dcb35e"/>
+            <rect x="16.4" y="5.5" width="3.6" height="14.5" rx="0.8" fill="#e8c874"/>
+            <path d="M17 3.4c.6 1.7-1.6 2.2-1.6 4.4a2.7 2.7 0 0 0 5.4 0c0-1.1-.5-1.6-1.1-2.1.3 1.1-.5 1.6-1 1 .5-1.6-.5-2.2-1.7-3.3z" fill="#e07a3f"/>
+          </svg>
+        </div><div class="sizelabel">80px</div></div>
+        <div class="sizeitem"><div class="icon sm">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="14" width="3.6" height="6" rx="0.8" fill="#c9a24b"/>
+            <rect x="10.2" y="10" width="3.6" height="10" rx="0.8" fill="#dcb35e"/>
+            <rect x="16.4" y="5.5" width="3.6" height="14.5" rx="0.8" fill="#e8c874"/>
+          </svg>
+        </div><div class="sizelabel">44px</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

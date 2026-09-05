@@ -1,0 +1,18 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 390, "h": 844, "title": "ホーム（ネイビー×ゴールド）" },
+    { "file": "Home_Gray.dc.html", "x": 480, "y": 0, "w": 390, "h": 844, "title": "ホーム（グレー×ブルー）" },
+    { "file": "AddHabit.dc.html", "x": 0, "y": 974, "w": 390, "h": 844, "title": "習慣を追加" },
+    { "file": "Celebration.dc.html", "x": 480, "y": 974, "w": 390, "h": 844, "title": "達成演出" },
+    { "file": "Badges.dc.html", "x": 960, "y": 974, "w": 390, "h": 844, "title": "実績・バッジ" },
+    { "file": "Heatmap.dc.html", "x": 0, "y": 1948, "w": 390, "h": 844, "title": "達成カレンダー" },
+    { "file": "Settings.dc.html", "x": 480, "y": 1948, "w": 390, "h": 844, "title": "設定" },
+    { "file": "AppIcon.dc.html", "x": 960, "y": 1948, "w": 760, "h": 460, "title": "アプリアイコン案" }
+  ],
+  "annotations": [
+    { "id": "note-theme-compare", "x": 0, "y": -80, "w": 520, "text": "ホーム画面：テーマ比較（左＝ネイビー×ゴールド／右＝グレー×ブルー）" },
+    { "id": "note-unified-theme", "x": 0, "y": 894, "w": 600, "text": "以下の画面はネイビー×ゴールドで統一して作成" },
+    { "id": "note-icon", "x": 960, "y": 1868, "w": 320, "text": "アプリアイコン案（2パターン）" }
+  ],
+  "launch": { "view": "canvas" }
+}

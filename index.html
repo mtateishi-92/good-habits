@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Good-Habbit</title>
+<meta name="description" content="習慣化を助けるアプリ。行動を登録して、習慣になるまで一緒に積み重ねます。">
+<meta name="theme-color" content="#0d1526">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Good-Habbit">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <div id="toast"></div>
+
+  <!-- ============ ホーム ============ -->
+  <section class="screen active" id="screen-home">
+    <div class="screen-scroll">
+      <div class="brandrow">
+        <div class="brand">
+          <div class="brand-mark">G</div>
+          <div class="brand-word">GOOD-HABBIT</div>
+        </div>
+        <div class="date-label" id="home-date"></div>
+      </div>
+
+      <div id="skipped-banner" class="banner hidden">
+        <span id="skipped-banner-icon"></span>
+        <span>1分でもやりませんか？昨日できなかった習慣があります。</span>
+        <button class="close" id="skipped-banner-close" aria-label="閉じる">×</button>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">本日のメッセージ</div>
+        <div class="msg-main serif" id="home-message"></div>
+      </div>
+
+      <div class="section-label" id="habit-count-label"></div>
+      <div class="habit-list" id="habit-list"></div>
+    </div>
+
+    <button class="fab" id="fab-add" aria-label="習慣を追加"></button>
+    <nav class="navbar" data-navbar-for="home"></nav>
+  </section>
+
+  <!-- ============ 習慣を追加 ============ -->
+  <section class="screen" id="screen-add">
+    <div class="screen-scroll">
+      <div class="page-header">
+        <button class="icon-btn" id="add-back" aria-label="戻る"></button>
+        <div class="page-title serif">新しい習慣を追加</div>
+      </div>
+      <div class="field">
+        <label>習慣名</label>
+        <input class="text-input" id="add-name-input" placeholder="例）朝の散歩" maxlength="30">
+      </div>
+      <div class="section-label">習慣化までの日数を選択</div>
+      <div class="option-list" id="add-options"></div>
+    </div>
+    <div class="screen-footer">
+      <button class="btn-primary" id="add-submit" disabled>習慣を登録する</button>
+    </div>
+  </section>
+
+  <!-- ============ 実績・バッジ ============ -->
+  <section class="screen" id="screen-badges">
+    <div class="screen-scroll">
+      <div class="page-title serif">実績・バッジ</div>
+      <div class="card">
+        <div class="summary-row">
+          <div class="summary-count" id="badge-summary-count">0 / 0</div>
+          <div class="summary-label">バッジ獲得</div>
+        </div>
+        <div class="progress-track" style="height:6px; margin-top:8px;">
+          <div class="progress-fill" id="badge-summary-fill" style="width:0%"></div>
+        </div>
+      </div>
+      <div id="badges-scroll" style="overflow-y:auto; display:flex; flex-direction:column; gap:16px; padding-bottom:8px;"></div>
+    </div>
+    <nav class="navbar" data-navbar-for="badges"></nav>
+  </section>
+
+  <!-- ============ バッジ詳細 ============ -->
+  <section class="screen" id="screen-badge-detail">
+    <div class="screen-scroll">
+      <div class="page-header">
+        <button class="icon-btn" id="badge-detail-back" aria-label="戻る"></button>
+        <div class="page-title dim">バッジ詳細</div>
+      </div>
+      <div id="badge-detail-content"></div>
+    </div>
+  </section>
+
+  <!-- ============ 達成カレンダー ============ -->
+  <section class="screen" id="screen-heatmap">
+    <div class="screen-scroll">
+      <div class="page-title serif">達成カレンダー</div>
+      <div class="month-row">
+        <button class="chev" id="month-prev" aria-label="前の月"></button>
+        <div class="month-label" id="month-label"></div>
+        <button class="chev" id="month-next" aria-label="次の月"></button>
+      </div>
+      <div class="card calendar-card">
+        <div class="weekday-row"><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div>土</div><div>日</div></div>
+        <div class="day-grid" id="day-grid"></div>
+        <div class="legend" id="heatmap-legend">少ない 多い</div>
+      </div>
+      <div class="stat-row">
+        <div class="card stat-card">
+          <div class="stat-value" id="stat-streak">0日</div>
+          <div class="stat-label">現在の最長ストリーク</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-value" id="stat-rate">0%</div>
+          <div class="stat-label">今月の達成率</div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar" data-navbar-for="heatmap"></nav>
+  </section>
+
+  <!-- ============ 設定 ============ -->
+  <section class="screen" id="screen-settings">
+    <div class="screen-scroll">
+      <div class="page-title serif">設定</div>
+      <div>
+        <div class="section-label" style="margin-bottom:10px; display:block;">テーマ</div>
+        <div class="theme-row" id="theme-row"></div>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:10px; display:block;">リスト更新時刻</div>
+        <div class="chip-row" id="reset-hour-row"></div>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:10px; display:block;">通知</div>
+        <div class="toggle-card" id="toggle-card"></div>
+      </div>
+    </div>
+    <div class="settings-footer">Good-Habbit v1.0.0</div>
+    <nav class="navbar" data-navbar-for="settings"></nav>
+  </section>
+
+  <!-- ============ 達成演出（オーバーレイ） ============ -->
+  <div id="celebration-overlay">
+    <div class="burst"></div>
+    <div class="dim-overlay"></div>
+    <div id="confetti-holder"></div>
+    <div class="celebration-modal">
+      <div class="medal" id="celebration-medal"></div>
+      <div class="celebration-title serif">おめでとうございます！</div>
+      <div class="celebration-sub" id="celebration-sub"></div>
+      <div class="celebration-badge-row hidden" id="celebration-badge-row">
+        <div class="celebration-badge-icon" id="celebration-badge-icon"></div>
+        <div class="celebration-badge-text">
+          <div class="celebration-badge-title" id="celebration-badge-title"></div>
+          <div class="celebration-badge-sub">バッジコレクションで確認できます</div>
+        </div>
+      </div>
+      <button class="btn-primary" id="celebration-view-badges">実績を見る</button>
+      <button class="btn-text" id="celebration-close">閉じる</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/icons.js"></script>
+<script src="js/content.js"></script>
+<script src="js/badges.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/logic.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

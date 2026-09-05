@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{
+    --bg:#0d1526; --surface:#16233d; --surface2:#1f3357;
+    --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874;
+    --text:#f5f1e6; --text-dim:#94a2ba;
+  }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  a{color:var(--gold);} a:hover{color:var(--gold-bright);}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .content{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:26px;}
+  .header{display:flex;align-items:center;gap:14px;}
+  .backbtn{width:32px;height:32px;border-radius:8px;background:var(--surface);display:flex;align-items:center;justify-content:center;flex:none;}
+  .backbtn svg{width:16px;height:16px;color:var(--text);}
+  .htitle{font-size:18px;font-weight:800;}
+  .field label{display:block;font-size:11px;letter-spacing:0.1em;color:var(--text-dim);font-weight:700;margin-bottom:8px;}
+  .input{width:100%;box-sizing:border-box;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;font-size:15px;color:var(--text);font-family:inherit;}
+  .input::placeholder{color:var(--text-dim);}
+  .sectionlabel{font-size:11px;letter-spacing:0.1em;color:var(--text-dim);font-weight:700;}
+  .options{display:flex;flex-direction:column;gap:12px;overflow-y:auto;padding-bottom:16px;}
+  .opt{display:flex;align-items:center;gap:14px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;}
+  .opt.selected{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset;}
+  .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--gold);flex:none;display:flex;align-items:center;justify-content:center;}
+  .radio .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .optmid{flex:1;display:flex;flex-direction:column;gap:3px;}
+  .optname{font-size:14.5px;font-weight:700;}
+  .optex{font-size:11.5px;color:var(--text-dim);}
+  .optdays{flex:none;font-size:15px;font-weight:800;color:var(--gold-bright);}
+  .footer{flex:none;padding:16px 20px 24px;background:var(--bg);border-top:1px solid var(--border);}
+  .cta{width:100%;box-sizing:border-box;background:var(--gold);color:var(--bg);border:none;border-radius:10px;padding:15px;font-size:15px;font-weight:800;font-family:inherit;}
+</style>
+</helmet>
+<div class="frame">
+  <div class="content">
+    <div class="header">
+      <div class="backbtn"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 5l-6 7 6 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="htitle serif">新しい習慣を追加</div>
+    </div>
+    <div class="field">
+      <label>習慣名</label>
+      <input class="input" placeholder="例）朝の散歩" value="朝の散歩"/>
+    </div>
+    <div class="sectionlabel">習慣化までの日数を選択</div>
+    <div class="options">
+      <div class="opt">
+        <div class="radio"></div>
+        <div class="optmid">
+          <div class="optname">簡単な行動</div>
+          <div class="optex">目安：水を飲む、食後に歯を磨く</div>
+        </div>
+        <div class="optdays">21日</div>
+      </div>
+      <div class="opt selected">
+        <div class="radio"><div class="dot"></div></div>
+        <div class="optmid">
+          <div class="optname">中程度の行動</div>
+          <div class="optex">目安：読書、朝の散歩</div>
+        </div>
+        <div class="optdays">90日</div>
+      </div>
+      <div class="opt">
+        <div class="radio"></div>
+        <div class="optmid">
+          <div class="optname">負荷の高い行動</div>
+          <div class="optex">目安：筋トレ、ハードな学習習慣</div>
+        </div>
+        <div class="optdays">180日</div>
+      </div>
+      <div class="opt">
+        <div class="radio"></div>
+        <div class="optmid">
+          <div class="optname">達成動作のテスト用</div>
+          <div class="optex">動作確認用の短期コース</div>
+        </div>
+        <div class="optdays">1日</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><button class="cta">習慣を登録する</button></div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{
+    --bg:#f3f5f9; --surface:#ffffff; --surface2:#eef1f6;
+    --border:#e3e7ee; --blue:#3057c9; --blue-bright:#4d75e8;
+    --text:#1c2433; --text-dim:#7c8698; --flame:#e07a3f;
+  }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  h1,h2,.serif{font-family:'Shippori Mincho',serif;}
+  a{color:var(--blue);} a:hover{color:var(--blue-bright);}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .scroll{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:22px;}
+  .brandrow{display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:8px;}
+  .mark{width:26px;height:26px;border-radius:9px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-weight:800;color:#fff;font-size:13px;}
+  .wordmark{font-size:13px;letter-spacing:0.14em;color:var(--blue);font-weight:700;}
+  .date{font-size:12px;color:var(--text-dim);}
+  .msgcard{display:flex;flex-direction:column;gap:10px;background:var(--surface);border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(30,50,90,0.06);}
+  .msglabel{font-size:10px;letter-spacing:0.16em;color:var(--blue);font-weight:700;}
+  .msgmain{font-size:20px;line-height:1.5;font-weight:700;}
+  .msgquote{font-size:12px;color:var(--text-dim);font-style:italic;}
+  .sectionlabel{font-size:11px;letter-spacing:0.16em;color:var(--text-dim);font-weight:700;}
+  .list{display:flex;flex-direction:column;gap:12px;padding-bottom:110px;overflow-y:auto;}
+  .card{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:16px;padding:14px;box-shadow:0 4px 14px rgba(30,50,90,0.06);}
+  .card.highlight{box-shadow:0 0 0 1.5px var(--blue), 0 4px 14px rgba(30,50,90,0.06);}
+  .check{width:24px;height:24px;border-radius:50%;border:2px solid var(--blue);flex:none;display:flex;align-items:center;justify-content:center;}
+  .check.done{background:var(--blue);border-color:var(--blue);}
+  .check svg{width:13px;height:13px;color:#fff;}
+  .mid{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;}
+  .hname{font-size:15px;font-weight:700;}
+  .hname.done{color:var(--text-dim);text-decoration:line-through;text-decoration-color:var(--text-dim);}
+  .tag{align-self:flex-start;font-size:10px;color:var(--blue);background:#e8edfb;padding:2px 8px;border-radius:999px;font-weight:700;}
+  .track{height:5px;border-radius:3px;background:var(--surface2);overflow:hidden;}
+  .fill{height:100%;background:var(--blue);border-radius:3px;}
+  .right{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+  .days{font-size:15px;font-weight:800;color:var(--blue);}
+  .dayslabel{font-size:9px;color:var(--text-dim);}
+  .streak{display:flex;align-items:center;gap:3px;font-size:11px;color:var(--flame);font-weight:700;}
+  .streak svg{width:13px;height:13px;}
+  .fab{position:absolute;right:20px;bottom:96px;width:54px;height:54px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(48,87,201,0.4);}
+  .fab svg{width:22px;height:22px;color:#fff;}
+  .navbar{height:76px;flex:none;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;}
+  .navitem{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-dim);font-size:10px;}
+  .navitem svg{width:20px;height:20px;}
+  .navitem.active{color:var(--blue);}
+</style>
+</helmet>
+<div class="frame">
+  <div class="scroll">
+    <div class="brandrow">
+      <div class="brand">
+        <div class="mark">G</div>
+        <div class="wordmark">GOOD-HABBIT</div>
+      </div>
+      <div class="date">9月5日（土）</div>
+    </div>
+    <div class="msgcard">
+      <div class="msglabel">本日のメッセージ</div>
+      <div class="msgmain serif">おはようございます。<br>今日も一歩、積み重ねましょう。</div>
+      <div class="msgquote">「ローマは一日にして成らず」</div>
+    </div>
+    <div class="sectionlabel">本日の習慣　4件</div>
+    <div class="list">
+      <div class="card">
+        <div class="check done"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="mid">
+          <div class="hname done">水を飲む習慣</div>
+          <div class="tag">簡単な行動・21日コース</div>
+          <div class="track"><div class="fill" style="width:57%"></div></div>
+        </div>
+        <div class="right">
+          <div class="days">残り9日</div>
+          <div class="dayslabel">習慣化まで</div>
+          <div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>5</div>
+        </div>
+      </div>
+      <div class="card highlight">
+        <div class="check"></div>
+        <div class="mid">
+          <div class="hname">読書30分</div>
+          <div class="tag">中程度の行動・90日コース</div>
+          <div class="track"><div class="fill" style="width:97%"></div></div>
+        </div>
+        <div class="right">
+          <div class="days">残り3日</div>
+          <div class="dayslabel">習慣化まで</div>
+          <div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>18</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="check"></div>
+        <div class="mid">
+          <div class="hname">朝の散歩</div>
+          <div class="tag">中程度の行動・90日コース</div>
+          <div class="track"><div class="fill" style="width:40%"></div></div>
+        </div>
+        <div class="right">
+          <div class="days">残り54日</div>
+          <div class="dayslabel">習慣化まで</div>
+          <div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>12</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="check"></div>
+        <div class="mid">
+          <div class="hname">筋トレ</div>
+          <div class="tag">負荷の高い行動・180日コース</div>
+          <div class="track"><div class="fill" style="width:5%"></div></div>
+        </div>
+        <div class="right">
+          <div class="days">残り171日</div>
+          <div class="dayslabel">習慣化まで</div>
+          <div class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-3 4-3 8a5 5 0 0 0 10 0c0-2-1-3-2-4 .5 2-1 3-2 2 1-3-1-4-3-6z"/></svg>2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fab"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+  <div class="navbar">
+    <div class="navitem active"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 6h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="10" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 12h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="16" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M10 18h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>ホーム</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>カレンダー</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M9 14.5L7 21l5-3 5 3-2-6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>バッジ</div>
+    <div class="navitem"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>設定</div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

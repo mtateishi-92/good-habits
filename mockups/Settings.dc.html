@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+  :root{
+    --bg:#0d1526; --surface:#16233d; --surface2:#1f3357;
+    --border:rgba(255,255,255,0.09); --gold:#c9a24b; --gold-bright:#e8c874;
+    --text:#f5f1e6; --text-dim:#94a2ba; --blue:#3057c9;
+  }
+  body{margin:0;background:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .frame{width:390px;height:844px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:var(--bg);}
+  .content{flex:1;overflow:hidden;padding:52px 20px 0;display:flex;flex-direction:column;gap:24px;}
+  .htitle{font-size:19px;font-weight:800;}
+  .sectionlabel{font-size:11px;letter-spacing:0.1em;color:var(--text-dim);font-weight:700;}
+  .themerow{display:flex;flex-direction:column;gap:10px;}
+  .theme{display:flex;align-items:center;gap:12px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;}
+  .theme.selected{border-color:var(--gold);}
+  .swatch{width:44px;height:44px;border-radius:9px;flex:none;display:flex;overflow:hidden;}
+  .swatch div{flex:1;}
+  .themename{font-size:13.5px;font-weight:700;flex:1;}
+  .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex:none;}
+  .radio .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .chiprow{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{padding:9px 16px;border-radius:999px;background:var(--surface);border:1.5px solid var(--border);font-size:13px;color:var(--text-dim);font-weight:700;}
+  .chip.selected{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+  .togglecard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:12px;}
+  .togglerow{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border);}
+  .togglerow:last-child{border-bottom:none;}
+  .togglemid{flex:1;display:flex;flex-direction:column;gap:3px;}
+  .togglename{font-size:13.5px;font-weight:700;}
+  .toggledesc{font-size:11px;color:var(--text-dim);}
+  .toggle{width:42px;height:24px;border-radius:999px;background:var(--gold);display:flex;align-items:center;padding:3px;flex:none;justify-content:flex-end;}
+  .toggle.off{background:var(--surface2);justify-content:flex-start;}
+  .knob{width:18px;height:18px;border-radius:50%;background:var(--text);}
+  .footer{flex:none;padding:14px 0 22px;text-align:center;font-size:11px;color:var(--text-dim);}
+</style>
+</helmet>
+<div class="frame">
+  <div class="content">
+    <div class="htitle serif">設定</div>
+    <div>
+      <div class="sectionlabel" style="margin-bottom:10px;">テーマ</div>
+      <div class="themerow">
+        <div class="theme selected">
+          <div class="swatch"><div style="background:#0d1526"></div><div style="background:#c9a24b"></div></div>
+          <div class="themename">クラシック ネイビー×ゴールド</div>
+          <div class="radio"><div class="dot"></div></div>
+        </div>
+        <div class="theme">
+          <div class="swatch"><div style="background:#f3f5f9"></div><div style="background:#3057c9"></div></div>
+          <div class="themename">モダン グレー×ブルー</div>
+          <div class="radio"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="sectionlabel" style="margin-bottom:10px;">リスト更新時刻</div>
+      <div class="chiprow">
+        <div class="chip">0時</div>
+        <div class="chip">1時</div>
+        <div class="chip selected">2時</div>
+        <div class="chip">3時</div>
+        <div class="chip">4時</div>
+      </div>
+    </div>
+    <div>
+      <div class="sectionlabel" style="margin-bottom:10px;">通知</div>
+      <div class="togglecard">
+        <div class="togglerow">
+          <div class="togglemid">
+            <div class="togglename">非操作リマインダー</div>
+            <div class="toggledesc">アプリを開いたまま30分操作がない場合に通知</div>
+          </div>
+          <div class="toggle"><div class="knob"></div></div>
+        </div>
+        <div class="togglerow">
+          <div class="togglemid">
+            <div class="togglename">未達成日のバナー通知</div>
+            <div class="toggledesc">前日サボった習慣がある場合にアプリ内で通知</div>
+          </div>
+          <div class="toggle"><div class="knob"></div></div>
+        </div>
+        <div class="togglerow">
+          <div class="togglemid">
+            <div class="togglename">達成演出サウンド</div>
+            <div class="toggledesc">花火演出・称賛コメント時の効果音</div>
+          </div>
+          <div class="toggle off"><div class="knob"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">Good-Habbit v1.0.0</div>
+</div>
+</x-dc>
+</body>
+</html>
