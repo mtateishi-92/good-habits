@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Good-Habbit — 通知まわり
+   Good-Habits — 通知まわり
    ・30分間無操作リマインダー（plan.md「通知」節）
    ・OS通知が使えない/許可されない環境では、アプリ内トースト表示にフォールバックする
    ========================================================================== */
@@ -47,7 +47,7 @@ window.GH_NOTIFY = (function () {
     var elapsed = Date.now() - lastInteraction;
     if (elapsed >= IDLE_MS) {
       var message = "そろそろ習慣化に取り組みませんか？";
-      fireSystemNotification("Good-Habbit", message);
+      fireSystemNotification("Good-Habits", message);
       if (onIdleFn) onIdleFn(message);
       // 連続で毎回鳴らさないよう、ここでタイマーを仕切り直す
       lastInteraction = Date.now();

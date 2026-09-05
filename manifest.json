@@ -1,6 +1,6 @@
 {
-  "name": "Good-Habbit",
-  "short_name": "Good-Habbit",
+  "name": "Good-Habits",
+  "short_name": "Good-Habits",
   "description": "習慣化を助けるアプリ。行動を登録して、習慣になるまで一緒に積み重ねます。",
   "start_url": "./index.html",
   "scope": "./",

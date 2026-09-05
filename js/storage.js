@@ -1,9 +1,9 @@
 /* ==========================================================================
-   Good-Habbit — 永続化まわり（localStorage）
+   Good-Habits — 永続化まわり（localStorage）
    ========================================================================== */
 
 window.GH_STORAGE = (function () {
-  var KEY = "goodHabbit.state.v1";
+  var KEY = "goodHabbits.state.v1";
 
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
 
@@ -73,7 +73,7 @@ window.GH_STORAGE = (function () {
       var parsed = JSON.parse(raw);
       return migrate(parsed);
     } catch (e) {
-      console.warn("Good-Habbit: 保存データの読み込みに失敗したため初期化します。", e);
+      console.warn("Good-Habits: 保存データの読み込みに失敗したため初期化します。", e);
       return defaultState();
     }
   }
@@ -82,7 +82,7 @@ window.GH_STORAGE = (function () {
     try {
       localStorage.setItem(KEY, JSON.stringify(state));
     } catch (e) {
-      console.warn("Good-Habbit: 保存に失敗しました（ストレージ容量の上限などが考えられます）。", e);
+      console.warn("Good-Habits: 保存に失敗しました（ストレージ容量の上限などが考えられます）。", e);
     }
   }
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Good-Habbit — アプリの起動・画面遷移・イベント配線
+   Good-Habits — アプリの起動・画面遷移・イベント配線
    ========================================================================== */
 
 (function () {
@@ -162,7 +162,7 @@
     if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("sw.js").catch(function (err) {
-          console.warn("Good-Habbit: Service Workerの登録に失敗しました。", err);
+          console.warn("Good-Habits: Service Workerの登録に失敗しました。", err);
         });
       });
     }

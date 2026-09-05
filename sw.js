@@ -1,10 +1,10 @@
 /* ==========================================================================
-   Good-Habbit — Service Worker
+   Good-Habits — Service Worker
    オフラインでも起動できるよう、アプリ本体をキャッシュする。
    中身を更新したら CACHE_NAME のバージョンを上げること。
    ========================================================================== */
 
-var CACHE_NAME = "good-habbit-v1";
+var CACHE_NAME = "good-habits-v1";
 
 var CORE_ASSETS = [
   "./",

@@ -1,4 +1,4 @@
-# Good-Habbit
+# Good-Habits
 
 習慣化を助けるPWA（Progressive Web App）です。詳しい仕様は [plan.md](plan.md)、表示文言は [content/messages.md](content/messages.md)、デザインは [mockups/](mockups/) を参照してください。
 

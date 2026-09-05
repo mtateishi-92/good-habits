@@ -1,4 +1,4 @@
-# Good-Habbit 表示文言集
+# Good-Habits 表示文言集
 
 plan.md「表示」節に対応する、実装用の文言データです。
 

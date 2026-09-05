@@ -1,4 +1,4 @@
-# 習慣化補助アプリ（名称：Good-Habbit）
+# 習慣化補助アプリ（名称：Good-Habits）
 
 ## 目的
 習慣化したいことを登録することで、習慣化を助けるPWA（Progressive Web App）です。
